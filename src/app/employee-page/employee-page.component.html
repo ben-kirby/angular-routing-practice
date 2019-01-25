@@ -1,0 +1,61 @@
+<a href="">Customer Page</a>
+<div class="card text-center">
+  <h3 class="card-header">Employee Portal!</h3>
+  <div class="card-body">
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="button" (click)="editBeer()" >Edit Beer List</button>
+    </div>
+
+    <div *ngFor='let keg of kegList'>
+
+      <dl>
+        <dt >{{keg.name}}, ${{keg.pintPrice}}</dt>
+        <dd>{{keg.brand}}, {{keg.alcoholContent}}%</dd>
+
+        <div *ngIf = 'editKeg'>
+          <div class="form-group">
+            <input class="form-control" [(ngModel)] = "keg.name" type="text">
+          </div>
+          <div class="form-group">
+            <input class="form-control" [(ngModel)] = "keg.brand" type="text">
+          </div>
+          <div class="form-group">
+            <input class="form-control" [(ngModel)] = "keg.pintPrice" type="number">
+          </div>
+          <div class="form-group">
+            <input class="form-control" [(ngModel)] = "keg.alcoholContent" type="number">
+          </div>
+        </div>
+
+      </dl>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="button" (click)="newBeer()" >Add A Beer</button>
+    </div>
+
+    <div *ngIf= 'displayBeer' class="newKeg">
+      <form >
+
+        <div class="form-group">
+          <input [(ngModel)] = "newBeerName" name="newBeerName" class="form-control" type="text" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <input [(ngModel)] = "newBeerBrand" name="newBeerBrand" class="form-control" type="text" placeholder="Brewery">
+        </div>
+        <div class="form-group">
+          <input  [(ngModel)] = "newPintPrice" name="newPintPrice" class="form-control" type="text" placeholder="$/Pint">
+        </div>
+        <div class="form-group">
+          <input [(ngModel)] = "newABV" name="newABV" class="form-control"  type="text" placeholder="ABV">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="button" (click)="addKeg()" >Submit</button>
+        </div>
+      </form>
+
+      </div>
+
+  </div>
+</div>
